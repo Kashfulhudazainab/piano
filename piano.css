@@ -1,175 +1,174 @@
-@import url('https;//fonts.googleapis.com/css2?family=Poppins:wght@400;');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;');
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding:0 10px;
+    padding: 0 10px;
     background-color: #e3f2fd;
 }
 
-.wrapper{
+.wrapper {
     background: black;
     border-radius: 20px;
-    padding:35px 40px;
+    padding: 35px 40px;
+    width: 100%;
+    max-width: 800px; /* Limit the maximum width */
 }
 
-.wrapper header{
+.wrapper header {
     color: #b2b2b2;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-header h2{
+header h2 {
     font-size: 1.6rem;
+    flex: 1; /* Allow header title to take available space */
 }
 
-header .column{
+header .column {
     display: flex;
     align-items: center;
+    margin: 5px 0; /* Add margin for better spacing */
 }
 
-header .column span{
+header .column span {
     font-weight: 500;
-    font-size: 1.9rem;
-    margin-right:15px;
+    font-size: 1.2rem; /* Adjust font size for better readability */
+    margin-right: 10px;
 }
 
-.volume-slider input{
+.volume-slider input {
     outline: none;
-    accent-color:#fff;
+    accent-color: #fff;
+    width: 100px; /* Set a maximum width for the slider */
 }
 
-.keys-checkbox input{
-width:60px;
-height:30px;
-appearance: none;
-outline: none;
-position: relative;
-border-radius: 30px;
-cursor:pointer;
-background: #4b4b4b;
+.keys-checkbox input {
+    width: 60px;
+    height: 30px;
+    appearance: none;
+    outline: none;
+    position: relative;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #4b4b4b;
 }
 
-.keys-checkbox input::before{
-    content:"";
+.keys-checkbox input::before {
+    content: "";
     position: absolute;
-background: #8c8c8c;
-height:20px;
-width:20px;top:50%;
-left:5px;
-border-radius: inherit;
-transform: translateY(-50%);
-transition:all 0.3s ease;
+    background: #8c8c8c;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 5px;
+    border-radius: inherit;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
 }
 
-.keys-checkbox input:checked::before{
-    left:35px;
-background: #fff;
+.keys-checkbox input:checked::before {
+    left: 35px;
+    background: #fff;
 }
 
-.piano-keys{
-    display:flex;
-    margin-top:40px;
+.piano-keys {
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between; /* Spread keys across the row */
+    flex-wrap: nowrap; /* Prevent keys from wrapping */
+    width: 100%; /* Ensure the keys take full width */
 }
 
-.piano-keys .key{
+.piano-keys .key {
     color: #a2a2a2;
     cursor: pointer;
     list-style: none;
     user-select: none;
     position: relative;
     text-transform: uppercase;
+    flex: 1; /* Allow keys to stretch equally */
 }
 
-.piano-keys .white{
-width:70px;
-height:230px;
-border:1px solid #000;
-border-radius: 8px;
-background:linear-gradient(#fff 96%, #eee 4%);
+.piano-keys .white {
+    height: 230px; /* Fixed height for white keys */
+    border: 1px solid #000;
+    border-radius: 8px;
+    background: linear-gradient(#fff 96%, #eee 4%);
+    margin: 0; /* Remove margin for uniform spacing */
 }
 
-.piano-keys .white.active{
-    box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
-    background:linear-gradient(to bottom,#fff 0%, #eee 100%);
+.piano-keys .white.active {
+    box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
 }
 
-.piano-keys .black.active{
-    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
-    background:linear-gradient(to bottom,#333 , #434343);
-}
-
-.piano-keys .black{
-    width:44px;
-    height:140px;
+.piano-keys .black {
+    height: 140px; /* Fixed height for black keys */
     z-index: 2;
-    margin: 0 -22px 0 -22px;
-    border-radius: 0  5px 5px;
-    background:linear-gradient(#333 ,#000);
-    }
-
-    .piano-keys span{
-        position:absolute;
-        bottom: 20px;
-        width:100%;
-        text-align: center;
-        font-size: 1.13rem;
-    }
-
-    .piano-keys .key.hide span{
-        display: none;
-    }
-
-    @media screen and(max-width:651px){
-        .piano-keys .key:nth-child(13),
-        .piano-keys .key:nth-child(14)
-        .piano-keys .key:nth-child(15)
-        .piano-keys .key:nth-child(16)
-        .piano-keys .key:nth-child(17){
-            display: none;
-        }
-        .piano-keys .white{
-            width:50px;
-        }
-    }
-
-    @media screen and (max-width:815px){
-        .wrapper{
-            padding:25px;
-        }
-header{
-flex-direction: column;
+    margin: 0 -22px; /* Center black keys */
+    border-radius: 0 5px 5px;
+    background: linear-gradient(#333, #000);
+    position: relative; /* Position relative for proper stacking */
 }
-header :where(h2,column){
-margin-bottom: 13px;
+
+.piano-keys .black.active {
+    box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.1);
 }
-.volume-slider input{
-    max-width: 100px;
+
+.piano-keys span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem; /* Smaller font for keys */
 }
-.piano-keys{
-    margin-top: 20px;
-}
-.piano-keys .key:where(:nth-child(9),:nth-child(10)){
+
+.piano-keys .key.hide span {
     display: none;
 }
-.piano-keys .black{
-    height:100px;
-    width:40px;
-    margin:0 -20px 0 -20px;
-}
-.piano-keys .white{
-    height:180px;
-    width:60px;
-  
-}
+
+/* Responsive Styles */
+@media screen and (max-width: 651px) {
+    .piano-keys .white {
+        height: 200px; /* Adjust height for smaller screens */
     }
+    .piano-keys .black {
+        height: 120px; /* Adjust height for black keys */
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .wrapper {
+        padding: 25px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    header :where(h2, .column) {
+        margin-bottom: 13px;
+    }
+
+    .volume-slider input {
+        max-width: 100%; /* Make slider responsive */
+    }
+
+    .piano-keys {
+        margin-top: 20px;
+    }
+}
