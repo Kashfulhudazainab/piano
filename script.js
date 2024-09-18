@@ -13,7 +13,7 @@ pianokeys.forEach(key=> {
 })
 
 const playTune = (key) => {
-    audio.src=`tunes/${key}.wav`;
+    audio.src=`audio/tunes/${key}.wav`;
 audio.play();
 console.log(allKeys);
 
